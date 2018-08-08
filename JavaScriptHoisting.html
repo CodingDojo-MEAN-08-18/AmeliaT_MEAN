@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Objects</title>
+    <script type="text/javascript">
+
+        //Q1
+        var hello;
+        console.log(hello); //logs undefined
+        hello = 'world';
+
+        //Q2
+        var needle = 'haystack';
+        test(); //logs magnet
+        function test(){
+            var needle = 'magnet';
+            console.log(needle); 
+        }
+        
+        //Q3
+        var brendan = 'super cool';
+        function print(){
+            brendan = 'only okay';
+            console.log(brendan);
+        }
+        console.log(brendan); //logs 'super cool'
+
+        //Q4
+        var food = 'chicken';
+        console.log(food); // logs 'chicken'
+        eat(); // logs 'half-chicken'
+        function eat(){
+            var food = 'gone';
+            food = 'half-chicken';
+            console.log(food); //logs 
+        }
+
+        //Q5
+        mean(); //logs not a function
+        console.log(food); 
+        var mean = function() {
+            food = "chicken";
+            console.log(food);
+            var food = "fish";
+            console.log(food);
+        }
+        console.log(food); 
+
+        //Q6
+        var genre;
+        console.log(genre); //logs undefined
+        genre = "disco";
+        rewind();
+        function rewind() {
+            var genre;
+            genre = "rock";
+            console.log(genre); //logs 'rock'
+            genre = "r&b";
+            console.log(genre); //logs 'r&b'
+        }
+        console.log(genre); //logs 'disco'
+
+        //Q7
+        dojo = "san jose"; 
+        console.log(dojo); //logs 'san jose'
+        learn(); 
+        function learn() {
+            var dojo;
+            dojo = "seattle";
+            console.log(dojo); //logs seattle
+            dojo = "burbank";
+            console.log(dojo); //logs burbank
+        }
+        console.log(dojo);
+
+        //Q8
+        console.log(makeDojo("Chicago", 65)); 
+        console.log(makeDojo("Berkeley", 0)); 
+        function makeDojo(name, students){
+            const dojo = {};
+            dojo.name = name;
+            dojo.students = students;
+            if(dojo.students > 50){
+                dojo.hiring = true; //log undefined
+            }
+            else if(dojo.students <= 0){
+                dojo = "closed for now";
+            }
+            return dojo; //log "closed for now"
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
