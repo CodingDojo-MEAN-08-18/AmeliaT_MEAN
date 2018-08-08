@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Objects</title>
+    <script type="text/javascript">
+
+        //Question 1
+        const students = [
+            {name: 'Remy', cohort: 'Jan'},
+            {name: 'Genevieve', cohort: 'March'},
+            {name: 'Chuck', cohort: 'Jan'},
+            {name: 'Osmund', cohort: 'June'},
+            {name: 'Nikki', cohort: 'June'},
+            {name: 'Boris', cohort: 'June'}
+        ];
+
+        //Question 2
+        const users = {
+            employees: [
+                {'first_name':  'Miguel', 'last_name' : 'Jones'},
+                {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+                {'first_name' : 'Nora', 'last_name' : 'Lu'},
+                {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+            ],
+            managers: [
+            {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+            {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+            ]
+        };
+
+        for (const student of students) {
+            console.log(`name:${student.name}, cohort:${student.cohort}`) 
+        };
+
+        for (const staffKey in users) {
+            console.log(staffKey.toUpperCase());
+            for (let numStaff = 0; numStaff < users[staffKey].length; numStaff++) {
+                const order = numStaff +1;
+                const first_n = users[staffKey][numStaff].first_name;
+                const last_n = users[staffKey][numStaff].last_name;
+                const length = first_n.length + last_n.length;
+                console.log (`${order} -${last_n}, ${first_n}-${length}`);
+            }
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
