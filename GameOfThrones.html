@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>GoT</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+           $('img').click(function(){
+            var id = $(this).attr("id");
+            $.get(`https://anapioficeandfire.com/api/houses/${id}`, function(res){
+                console.log(res)
+                var string = res.titles[0]
+                for (var i = 1; i < res.titles.length; i++) {
+                    string += ", " + res.titles[i]
+                }
+                var html = `<fieldset>
+                    <legend>House Detail</legend>
+                    <h2>Name: ${res.name}</h2>
+                    <h3>Words: ${res.words}</h3>
+                    <h3>Titles:${string}</h3>
+                </fieldset>`
+                $('#results').html(html);
+            }, 'json');
+            return false;
+           })
+        });
+    </script>
+</head>
+<body>
+<div id="thrones">
+    <img src="baratheon.png" id="17" width=300>
+    <img src="lannister.jpg" id="229" width=300>
+    <img src="stark.jpg" id="362" width=300>
+    <img src="targaryen.jpg" id="378" width=300>
+    <div id="results"></div>
+</div>
+</body>
+</html>
