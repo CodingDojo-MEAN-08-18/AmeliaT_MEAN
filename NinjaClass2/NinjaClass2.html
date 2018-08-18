@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class</title>
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+	<script type="text/javascript">
+		 
+		 function Ninja(name){
+             //makes name & health accessible/public
+             var self = this;  
+             this.name = name;
+             this.health = 100;
+             //100 by default
+             var speed = 3;
+             //3 by default, private variable 
+             var strength = 3; 
+             //3 by default, private variable
+            
+             var showDeets = function(){
+                console.log("Name: " + self.name + ", Health: " + self.health + ", Speed: " + speed + ", Strength: " + strength);
+             }
+
+            this.showStats = function () {
+                showDeets();
+            }
+                //show the ninja's name, strength, speed, and health.
+
+            this.kick = function(name){
+                console.log(name instanceof Ninja)
+                //true expected
+                const healthKick = strength * 15;
+                console.log(healthKick);
+                name.health -= healthKick;
+                console.log(name.name + " was kicked by " + this.name + " and lost " + healthKick + " Health!");
+                return this;
+            }
+             Ninja.prototype.sayName = function() {
+                 console.log("My ninja name is " + this.name + "!");
+                 return this;
+             }
+             //log the Ninja's name to the console
+           
+            Ninja.prototype.drinkSake = function() {
+                this.health +=10;
+                return this;
+            }
+            //Adds +10 health to the ninja
+
+            Ninja.prototype.punch = function(name) {
+                console.log(name instanceof Ninja)
+                //true expected
+                console.log(name.name + "was punched by " + this.name + " and lost 5 Health!");
+                name.health -=5;
+                return this;
+            }
+            
+        }
+        const ninja1 = new Ninja("Yukimi");
+        ninja1.sayName();
+        ninja1.showStats();
+        ninja1.drinkSake();
+        ninja1.showStats();
+
+        const blueNinja = new Ninja("Goemon");
+        const redNinja = new Ninja("Bill Gates");
+        blueNinja.showStats();
+        redNinja.punch(blueNinja);
+        blueNinja.showStats();
+        blueNinja.kick(redNinja);
+        redNinja.showStats();
+         
+	</script>
+</head>
+<body>
+
+</body>
+</html>
