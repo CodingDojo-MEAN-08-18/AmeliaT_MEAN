@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class</title>
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+	<script type="text/javascript">
+		 
+		 function Ninja(name){
+             //makes name & health accessible/public
+             var self = this;  
+             this.name = name;
+             this.health = 100;
+             //100 by default
+             var speed = 3;
+             //3 by default, private variable 
+             var strength = 3; 
+             //3 by default, private variable
+            
+             var showDeets = function(){
+                console.log("Name: " + self.name + ", Health: " + self.health + ", Speed: " + speed + ", Strength: " + strength);
+             }
+
+            this.showStats = function () {
+                showDeets();
+            }
+                //show the ninja's name, strength, speed, and health.
+
+             Ninja.prototype.sayName = function() {
+                 console.log("My ninja name is " + this.name + "!");
+                 return this;
+             }
+             //log the Ninja's name to the console
+           
+            Ninja.prototype.drinkSake = function() {
+                this.health +=10;
+                return this;
+            }
+            //Adds +10 health to the ninja
+        }
+        const ninja1 = new Ninja("Yukimi");
+        ninja1.sayName();
+        ninja1.showStats();
+        ninja1.drinkSake();
+       
+         
+	</script>
+</head>
+<body>
+
+</body>
+</html>
