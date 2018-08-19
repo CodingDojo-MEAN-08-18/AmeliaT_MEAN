@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class 3</title>
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+	<script type="text/javascript">
+		 
+		class Ninja {
+            constructor(name) {
+            this.name = name;
+            this.health = 100;
+            this.speed = 3;
+            this.strength = 3;
+            }
+            
+            sayName() {
+                 console.log(`My ninja name is ${this.name}!`);
+                 //return this;
+            }
+             
+            showStats(){
+                console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`);
+            }
+            
+            //Adds +10 health to the ninja
+            drinkSake() {
+                this.health +=10;
+                return this;
+            }
+           
+        }
+
+        class Sensei extends Ninja {
+            constructor(name) {
+                super(name);
+                this._health = 200;
+                this._speed = 10;
+                this._strength = 10;
+                this._wisdom = 10;
+            }
+        
+            speakWisdom() {
+                super.drinkSake();
+                console.log("Do or do not. There is no try.");
+            }
+        }
+
+        const ninja1 = new Ninja("Yukimi");
+        ninja1.sayName();
+        ninja1.showStats();
+        ninja1.drinkSake();
+        ninja1.showStats();
+
+        const blueNinja = new Ninja("Goemon");
+        const redNinja = new Ninja("Bill Gates");
+        blueNinja.showStats();
+
+        
+        sensei1 = new Sensei("Hiri-yoshi");
+        sensei1.showStats();
+        sensei1.speakWisdom();
+        sensei1.showStats();
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
