@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deck of Cards</title>
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+	<script type="text/javascript">
+		//-------------------------------Question 1--------------------------------
+		class Card {
+            constructor() {
+            this.suit = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+            this.stringValue = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+            this.numVal = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+            }
+            show() {
+                const pickSuit = Math.floor(Math.random()*4);
+                const pickNum = Math.floor(Math.random()*13);
+
+                //console.log(pickNum);
+                console.log(`You chose this card! Suit: ${this.suit[pickSuit]}, Name: ${this.stringValue[pickNum]}, Numeric: ${this.numVal[pickNum]}`);
+            }
+        }    
+            var card1 = new Card();
+            var card2 = new Card();
+            card1.show();
+            card2.show();
+
+//------------------------------------Question 2----------------------------------
+//Make a deck out of the cards and shuffle them! 52 cards - 4 suits, 13 cards per suit. Shuffle, reset, and dealing required.
+
+        class Deck {
+            constructor() {
+                this.deck = [];
+                this.reset();
+                }
+
+            reset() {
+                this.deck = [];
+                const suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+                const stringValues = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+                
+                //Populate a deck of 52 cards
+                for (const suit of suits ) {
+                    for (const value of stringValues) {
+                        this.deck.push(`${value} of ${suit}`);
+                    }
+                }
+                return this;
+            }
+            
+            //shuffle
+            shuffle() {
+                let shuffleIt = this.deck.length, newOrder, shuffling;
+
+                while (shuffleIt) {
+                    shuffling = Math.floor(Math.random() * shuffleIt--);
+
+                    newOrder = this.deck[shuffleIt];
+                    this.deck[shuffleIt] = this.deck[shuffling];
+                    this.deck[shuffling] = newOrder;
+                }
+                return this;
+            }
+            
+            //make sure same card can't be dealt again
+            deal() {
+                return this.deck.pop();
+            }
+            
+            //New length of deck after cards are dealt
+            cardCount() {
+                return this.deck.length;
+            }
+        }
+            
+        var deck1 = new Deck();
+        //console.log('New deck: ');
+        //console.log(deck1);
+        deck1.shuffle();
+        console.log('Shuffled Deck: ');
+        console.log(deck1);
+        console.log('Check the Deck: ');
+        console.log(deck1.cardCount());
+        //console.log('Dealing a Card: ');
+        //console.log(deck1.deal());
+        //console.log('Check the Deck: ');
+        //console.log(deck1.cardCount());
+
+//-------------------------------Question 3 ----------------------
+
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.hand = [];
+            }
+
+            makeHand(deck, numCards) {
+                this.hand.push(deck)
+                for (let count = 1; count < numCards; count++ ) {
+                    let newCard = deck.deal();
+                    this.hand.push(`${newCard}`);
+                }
+                return this;
+            }
+
+            draw(deck) {
+                this.hand.push(deck.deal());
+                return this;
+            }
+
+            discard() {
+                this.hand.pop();
+                return this;
+            }
+        }
+
+        var player1 = new Player('PokerFace');
+        console.log(player1.name);
+        player1.makeHand(deck1, 5);
+        console.log(player1.hand);
+        console.log(deck1.cardCount());
+        player1.draw(deck1);
+        console.log(player1.hand);
+        console.log(deck1.cardCount());
+        player1.discard();
+        console.log(player1.hand);
+        console.log(deck1.cardCount());
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
