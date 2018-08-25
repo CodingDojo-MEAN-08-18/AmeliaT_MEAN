@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class</title>
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+	<script type="text/javascript">
+		 
+		 function fib() {
+			var currentVal = 0, newVal = 1;
+
+			function nacci() {
+				const tempVal = currentVal;
+				console.log(newVal);
+
+				currentVal = newVal;
+				newVal = currentVal +tempVal;
+			}
+
+    return nacci;
+}
+
+  var fibCounter = fib();
+  fibCounter() //  "1"
+  fibCounter() //  "1"
+  fibCounter() //  "2"
+  fibCounter() //  "3"
+  fibCounter() //  "5"
+  fibCounter() //  "8"
+  fibCounter() //  "13"
+  fibCounter() //  "21"
+  fibCounter() //  "34"
+  fibCounter() //  "55"
+  fibCounter() //  "89"
+       
+         
+	</script>
+</head>
+<body>
+
+</body>
+</html>
