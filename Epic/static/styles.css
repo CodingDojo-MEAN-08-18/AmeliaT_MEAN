@@ -1,0 +1,39 @@
+.wrapper{
+    width: 500px;
+    height: 200px;
+    border: 2px black solid;
+    padding: 5px; 
+}
+#message{
+    font-size: 25px;
+}
+
+p{
+    text-align: center;
+}
+
+#epic_button{
+    margin-left: 50px;
+}
+
+#counter_button{
+    background-color: blue;
+    color: white;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-left: 130px;
+    display: block;
+}
+
+#reset_button{
+    background-color: red;
+    color: white;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 350px;
+    display: block;
+}
