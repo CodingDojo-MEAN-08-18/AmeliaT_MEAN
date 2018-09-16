@@ -1,0 +1,22 @@
+fieldset{
+    border-radius: 40px;
+    border-color: blue;
+    border-width: 3px;
+    height: 250px;
+    width: 400px;
+}
+form {
+    width: 330px;
+}
+label, input {
+    padding: 4px;
+    margin: 5px, 15px, 2px, 15px;
+    display: block;
+}
+#exisitng_messages {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: grey;
+    margin-left: 15px;
+}
