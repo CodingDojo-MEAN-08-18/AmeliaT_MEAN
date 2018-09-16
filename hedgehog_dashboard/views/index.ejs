@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/style.css">
+    <title>Hedgehogs : Home</title>
+</head>
+<body>
+    <div id="dashboard">
+        <h2>Welcome to the Hedgehog Dashboard!</h2>
+        <a href="/new">Create a new hedgehog</a>      
+    </div>
+    <div id="display">
+        <% if(hedgehogs) { %>
+            <% for(let i = 0; i < hedgehogs.length; i++) { %>
+                <p><a href="/hedgehogs/<%= hedgehogs[i]._id %>"> <%= hedgehogs[i].name %></a></p>
+                <p>A <%= hedgehogs[i].color %> hedgehog </p> 
+                <p>Age: <%= hedgehogs[i].age %> years</p>
+                <p><%= hedgehogs[i].name %> is a cute hedgehog!</p>
+                <hr>
+            <% } %>
+        <% } %>
+    </div> <!-- display -->
+</body>
+</html>

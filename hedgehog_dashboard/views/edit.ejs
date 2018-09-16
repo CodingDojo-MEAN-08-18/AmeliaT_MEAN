@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/style.css">
+    <title>Hedgehogs : Home</title>
+</head>
+<body>
+    <form action="/hedgehogs/<%= hedgehog._id %>" method="post">
+        <label>Name:</label><input type="text" name="name" value="<%= hedgehog.name %>">
+        <label>Age:</label><input type="text" name="age" value="<%= hedgehog.age %>">
+        <label>Color:</label><input type="text" name="color" value="<%= hedgehog.color %>">
+        <input type="submit" name="update_hedgehog" value="Complete Edits">
+    </form>
+</body>
+</html>

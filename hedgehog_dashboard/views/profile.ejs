@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen" href="/style.css">
+<title>Hedgehogs : Profile</title>
+</head>
+<body>
+    <div id="navbar">
+        <a href="/">Home</a> 
+    </div>
+    <div id="display">
+        <% if(hedgehogs) { %>
+            <p><%= hedgehogs[0].name %></p>
+            <p>A <%= hedgehogs[0].color %> hedgehog </p>
+            <p> Age: <%= hedgehogs[0].age %> years</p>
+            <p><%= hedgehogs[0].name %> is a cute hedgehog!</p>
+        <% } %>
+    </div> <!-- display -->
+    <form action="/edit/<%= hedgehogs[0]._id %>" method="get">
+        <input type="submit" value="Hedgehog Edits">
+    </form>
+    <form action="/destroy/<%= hedgehogs[0]._id %>" method="post">
+        <input type="submit" value="Hedgehog Eliminator">
+    </form>
+</body>
+</html>
